@@ -30,12 +30,13 @@ In today's Digital Revolution, data has become a crucial asset driving various h
 
 “Given a natural language query (NLQ) on a Relational Database (RDB) with a specific schema, produce a SQL query equivalent in meaning, which is valid for the said RDB and that when executed will return results that match the user’s intent.”
 
-![he framework for text-to-SQL systems](images/problem.png)
+![Figure 1: The framework for text-to-SQL systems. Given the database schema and user utterance, the system outputs a corresponding SQL query to query the database system for the result. Appendix B gives more text-to-SQL examples.
+](images/problem.png)
 
 
 The core function of text-to-SQL is to convert natural language statements into executable SQL queries. Figure 1 shows an example. Given a user asks "What are the major cities in the state of Kansas?", the system generates a corresponding SQL query that can retrieve the relevant information from a database. This technology forms the foundation of natural language interfaces to databases (NLIDB), which allow non-expert users to easily access and query database information using everyday language \[1\]. Figure 2 shows the topology for the text-to-SQL \[1\] as of 2021\.
 
-![][image2]
+![Figure 2 shows the topology for the text-to-SQL][images/topology.png]
 
 # **Motivation** 
 
