@@ -36,7 +36,7 @@ In today's Digital Revolution, data has become a crucial asset driving various h
 
 The core function of text-to-SQL is to convert natural language statements into executable SQL queries. Figure 1 shows an example. Given a user asks "What are the major cities in the state of Kansas?", the system generates a corresponding SQL query that can retrieve the relevant information from a database. This technology forms the foundation of natural language interfaces to databases (NLIDB), which allow non-expert users to easily access and query database information using everyday language \[1\]. Figure 2 shows the topology for the text-to-SQL \[1\] as of 2021\.
 
-![Figure 2 shows the topology for the text-to-SQL][images/topology.png]
+![Figure 2 shows the topology for the text-to-SQL](images/topology.png)
 
 # **Motivation** 
 
