@@ -58,7 +58,8 @@ Other metrics are available, though EM and EX are the most relevant and widely u
 
 During our literature review, we identified many datasets frequently used in existing studies, each has distinct structural characteristics. Consequently, we will investigate each dataset individually to understand their unique features and implications for text-to-SQL applications.
 
-![]()
+![Table 1: Comparisons of text-to-SQL datasets. Spider is the only one text-to-SQL dataset that contains both databases with multiple tables in different domains and complex SQL queries [3]. 
+](images/datasets.png)
 
 Table 1: Comparisons of text-to-SQL datasets. Spider is the only one text-to-SQL dataset that contains both databases with multiple tables in different domains and complex SQL queries \[3\]. 
 
@@ -78,7 +79,7 @@ On August 28th, A smaller version of Spider 2.0 (\~25% of the full dataset) cont
 
 We evaluate our model on the spider benchmark Competing with State-of-the-Art Systems.
 
-![][image4]
+![Current top-performing models on the Spider benchmark, with accuracy scores for SQL generation.](images/spider-state-of-the-art.png)
 
 [Figure](https://yale-lily.github.io/spider). Current top-performing models on the Spider benchmark, with accuracy scores for SQL generation.
 
@@ -90,7 +91,8 @@ We plan to evaluate our model on the Spider benchmark, which is a widely used be
 
 WikiSQL is a dataset containing 80,654 hand-annotated instances of natural language questions, SQL queries, and SQL tables, extracted from 24,241 HTML tables on Wikipedia, totaling 116 MB in size. It is divided into 8,294 validation instances, 56,143 for training, and 15,832 for testing. When it was first released, WikiSQL was the largest hand-annotated semantic parsing dataset. One limitation of WikiSQL is that each query involves only a single table, and the queries are relatively simple, lacking more complex keywords like JOIN, GROUP BY, and others \[[5](https://arxiv.org/pdf/1709.00103)\].
 
-![][image5]Figure 4: An example in WikiSQL. The inputs consist of a table and a question. The outputs consist of a ground truth SQL query and the corresponding result from execution \[5\].
+![igure 4: An example in WikiSQL. The inputs consist of a table and a question. The outputs consist of a ground truth SQL query and the corresponding result from execution [5].](images/wikisql-example.png)
+Figure 4: An example in WikiSQL. The inputs consist of a table and a question. The outputs consist of a ground truth SQL query and the corresponding result from execution \[5\].
 
 In WikiSQL, the tables, and SQL queries are randomly slotted into train, dev, and test splits, such that each table is present in exactly one split. The Data set is available for [download](https://www.kaggle.com/datasets/shahrukhkhan/wikisql) on Kaggle.
 
@@ -99,7 +101,8 @@ In WikiSQL, the tables, and SQL queries are randomly slotted into train, dev, an
 ### Description
 
 The focus of Spider & WikiSQL datasets is primarily on the structure of the database (the schema)—how the tables are organized, the columns they contain, and the relationships between tables. However, the actual data (rows of database values) inside these tables is minimal or limited. BIRD-SQL describes this as “the gap between academic study and  
-real-world applications”. To mitigate this gap, BIRD, a BIg bench for laRge-scale Database grounded in text-to-SQL tasks, containing 12,751 text-toSQL pairs and 95 databases with a total size of 33.4 GB, spanning 37 professional domains was presented. To solve these issues, text-to-SQL models must feature database value comprehension in addition to semantic parsing. Authors claim that experimental results demonstrate the significance of database values in generating accurate text-to-SQLs for big databases \[6\]. ![][image6]
+real-world applications”. To mitigate this gap, BIRD, a BIg bench for laRge-scale Database grounded in text-to-SQL tasks, containing 12,751 text-toSQL pairs and 95 databases with a total size of 33.4 GB, spanning 37 professional domains was presented. To solve these issues, text-to-SQL models must feature database value comprehension in addition to semantic parsing. Authors claim that experimental results demonstrate the significance of database values in generating accurate text-to-SQLs for big databases \[6\]. 
+![](images/bird.png)
 
 The figure above presents a comparative analysis of WiKiSQL, SPIDER, and BIRD. It is evident from the "\# Rows/DB" metric that BIRD surpasses both WiKiSQL and SPIDER in terms of database value representation. However, BIRD encompasses fewer databases compared to SPIDER. Furthermore, while BIRD emphasizes real-world data and the presence of noisy values, SPIDER prioritizes query complexity. BIRD-SQL can be downloaded [here](https://bird-bench.github.io) by choosing either [train set](https://bird-bench.oss-cn-beijing.aliyuncs.com/train.zip) or [dev set](https://bird-bench.oss-cn-beijing.aliyuncs.com/dev.zip).
 
@@ -113,7 +116,7 @@ The figure above presents a comparative analysis of WiKiSQL, SPIDER, and BIRD. I
 
 		Adopted from ([https://arxiv.org/html/2406.08426v1](https://arxiv.org/html/2406.08426v1))
 
-![][image7]
+![](images/model-cycle.png)
 
 Figure 1:An example for LLM-based text-to-SQL selected from Spider. The user proposes a question, *“What cartoons were written by Joseph Kuhr?”* the LLM takes the question and the schema of its corresponding database as the input, then generates a SQL query as the output. The SQL query can be executed in the database and retrieve a content *“Batman Series”* to answer the user question (https://arxiv.org/html/2406.08426v1)
 
@@ -123,7 +126,7 @@ Figure 1:An example for LLM-based text-to-SQL selected from Spider. The user pro
 
 ### Architecture of base model
 
-![][image8]
+![](images/t5-arch.png)
 
 T5 architecture is illustrated in the above figure.
 
@@ -170,7 +173,7 @@ The evaluation process involved comparing the results obtained by querying the d
 
 ValueNet’s architecture is based on an **encoder-decoder neural network**. It is designed to process both the structure of the database and the content, allowing for more accurate SQL generation by including relevant values. The architecture also introduces a mechanism to recognize and integrate values during the query synthesis process.
 
-![][image9]
+![](images/valuenet-arch.png)
 
 This diagram illustrates the end-to-end process of our NL-to-SQL system. The system takes a natural language question, the database schema, and access to the database content as input, and produces a SQL query as output. This SQL query retrieves the requested data once executed. 
 
@@ -184,7 +187,7 @@ Given a natural language question and a database schema, the system has to synth
 
 The model was evaluated on the **Spider dataset** using the **Execution Accuracy** metric, which is more challenging than metrics used by other systems. ValueNet and its lighter version, **ValueNet light**, achieved **67%** and **62%** accuracy, respectively, demonstrating state-of-the-art results in NL-to-SQL translation while effectively incorporating values.
 
-![][image11]
+![](images/evaluation.png)
 
 This table presents the translation accuracy of ValueNet categorized by query difficulty. The results indicate that ValueNet achieves an average accuracy of 77% for easy queries, while the accuracy decreases to 43% for extra-hard queries. (adopted from the paper)
 
@@ -237,7 +240,7 @@ These models are specifically trained for Code generation, so they often perform
 
 Since our main focus is SQL generation, we’ll begin with a specialized Text-to-Code model like DeepSeek-Coder. These models are optimized for the task, requiring less computational power compared to text-to-text models, as they are pre-trained on multiple programming languages and understand syntax and structure. DeepSeek-Coder offers a range of models from 1.3B to 33B, but due to our limited GPU resources, we’ll use the [DeepSeek-Coder1.3B](https://huggingface.co/deepseek-ai/deepseek-coder-1.3b-base) model. To further optimize, we will leverage techniques like **QLoRA** or **LoRA** for parameter-efficient fine-tuning, allowing us to maximize performance without overextending our hardware.
 
-![][image12]
+![](images/deepseeke.png)
 
 The above image shows that deepSeek-Coder outperforms most models, with the 33B variant leading in multiple benchmarks. Notably, even the 1B model competes with larger models (over 10B) in tasks like HumanEval, showcasing its efficiency and state-of-the-art performance across various programming languages.
 
