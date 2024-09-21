@@ -33,7 +33,6 @@ In today's Digital Revolution, data has become a crucial asset driving various h
 ![Figure 1: The framework for text-to-SQL systems. Given the database schema and user utterance, the system outputs a corresponding SQL query to query the database system for the result. Appendix B gives more text-to-SQL examples.
 ](images/problem.png)
 
-
 The core function of text-to-SQL is to convert natural language statements into executable SQL queries. Figure 1 shows an example. Given a user asks "What are the major cities in the state of Kansas?", the system generates a corresponding SQL query that can retrieve the relevant information from a database. This technology forms the foundation of natural language interfaces to databases (NLIDB), which allow non-expert users to easily access and query database information using everyday language \[1\]. Figure 2 shows the topology for the text-to-SQL \[1\] as of 2021\.
 
 ![Figure 2 shows the topology for the text-to-SQL](images/topology.png)
@@ -59,7 +58,7 @@ Other metrics are available, though EM and EX are the most relevant and widely u
 
 During our literature review, we identified many datasets frequently used in existing studies, each has distinct structural characteristics. Consequently, we will investigate each dataset individually to understand their unique features and implications for text-to-SQL applications.
 
-![][image3]
+![]()
 
 Table 1: Comparisons of text-to-SQL datasets. Spider is the only one text-to-SQL dataset that contains both databases with multiple tables in different domains and complex SQL queries \[3\]. 
 
