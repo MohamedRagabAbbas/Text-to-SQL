@@ -59,7 +59,7 @@ Other metrics are available, though EM and EX are the most relevant and widely u
 During our literature review, we identified many datasets frequently used in existing studies, each has distinct structural characteristics. Consequently, we will investigate each dataset individually to understand their unique features and implications for text-to-SQL applications.
 
 ![Table 1: Comparisons of text-to-SQL datasets. Spider is the only one text-to-SQL dataset that contains both databases with multiple tables in different domains and complex SQL queries [3]. 
-](images/datasets.png)
+](s/datasets.png)
 
 Table 1: Comparisons of text-to-SQL datasets. Spider is the only one text-to-SQL dataset that contains both databases with multiple tables in different domains and complex SQL queries \[3\]. 
 
@@ -79,7 +79,7 @@ On August 28th, A smaller version of Spider 2.0 (\~25% of the full dataset) cont
 
 We evaluate our model on the spider benchmark Competing with State-of-the-Art Systems.
 
-![Current top-performing models on the Spider benchmark, with accuracy scores for SQL generation.](images/spider-state-of-the-art.png)
+![Current top-performing models on the Spider benchmark, with accuracy scores for SQL generation.](s/spider-state-of-the-art.png)
 
 [Figure](https://yale-lily.github.io/spider). Current top-performing models on the Spider benchmark, with accuracy scores for SQL generation.
 
@@ -91,7 +91,7 @@ We plan to evaluate our model on the Spider benchmark, which is a widely used be
 
 WikiSQL is a dataset containing 80,654 hand-annotated instances of natural language questions, SQL queries, and SQL tables, extracted from 24,241 HTML tables on Wikipedia, totaling 116 MB in size. It is divided into 8,294 validation instances, 56,143 for training, and 15,832 for testing. When it was first released, WikiSQL was the largest hand-annotated semantic parsing dataset. One limitation of WikiSQL is that each query involves only a single table, and the queries are relatively simple, lacking more complex keywords like JOIN, GROUP BY, and others \[[5](https://arxiv.org/pdf/1709.00103)\].
 
-![igure 4: An example in WikiSQL. The inputs consist of a table and a question. The outputs consist of a ground truth SQL query and the corresponding result from execution [5].](images/wikisql-example.png)
+![igure 4: An example in WikiSQL. The inputs consist of a table and a question. The outputs consist of a ground truth SQL query and the corresponding result from execution [5].](s/wikisql-example.png)
 Figure 4: An example in WikiSQL. The inputs consist of a table and a question. The outputs consist of a ground truth SQL query and the corresponding result from execution \[5\].
 
 In WikiSQL, the tables, and SQL queries are randomly slotted into train, dev, and test splits, such that each table is present in exactly one split. The Data set is available for [download](https://www.kaggle.com/datasets/shahrukhkhan/wikisql) on Kaggle.
@@ -181,7 +181,7 @@ This diagram illustrates the end-to-end process of our NL-to-SQL system. The sys
 
 Given a natural language question and a database schema, the system has to synthesize a valid SQL query.
 
-![][image10]
+![](images/input_output.png)
 
 ### **Evaluation**
 
@@ -246,7 +246,7 @@ The above image shows that deepSeek-Coder outperforms most models, with the 33B 
 
 # **Contribution**
 
-![][image13]
+![](images/contribution.png)
 
 Our primary objective is to fine-tune the [DeepSeek-Coder1.3B](https://arxiv.org/abs/2401.14196) model specifically for text-to-SQL generation. We are leveraging insights from recent research, notably the paper "Can LLM Already Serve as a Database Interface?" which discusses current benchmarks' limitations in handling real-world database scenarios. This informs our approach to refining our model to handle complex, large-scale database queries more effectively. To achieve this, we may improve the Spider dataset in line with the methodologies and challenges highlighted in the mentioned paper, ensuring that our model training reflects the intricacies of real-world data scenarios.
 
