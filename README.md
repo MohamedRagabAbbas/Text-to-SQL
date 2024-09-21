@@ -15,11 +15,6 @@ Dr. Moustafa Youssef
 
 ---
 
-Fall 2024
-
-Mohamed Abbas \- 900211252  
-Youssef Mansoor \- 900212652
-
 # **Introduction**
 
 In today's Digital Revolution, data has become a crucial asset driving various human activities, from business to scientific research. However, the massive growth and complexity of data make it difficult for even experts to efficiently query and explore it. Current data query interfaces either use simple form-based methods, which are user-friendly but limited in functionality, or require knowledge of low-level database query languages like SQL, catering mainly to experts. To make data accessible and valuable to everyone, we need to remove the technical hurdles and reduce reliance on IT professionals. Enabling queries in natural language could democratize data access for all. Text-to-SQL technology has gained significant interest from researchers in natural language processing and database fields. Its importance stems from its ability to transform natural language meaning into SQL queries, enabling the creation of natural language interfaces for database systems.
